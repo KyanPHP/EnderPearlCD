@@ -1,0 +1,5 @@
+#Enderpearl cooldown time in seconds
+cooldown: 5
+
+#Enderpearl cooldown message. use {cooldown} to get the cooldown time
+message: "§cEnderpearl cooldown: {cooldown} seconds"

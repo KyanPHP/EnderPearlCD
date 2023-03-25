@@ -1,0 +1,7 @@
+name: EnderpearlCD
+version: 1.0.0
+api: [4.0.0, 5.999.999]
+main: Shary\EnderpearlCD\Main
+author: Shary
+description: A plugin that adds cooldown to enderpearls.
+dependencies: [Shary\EnderpearlCD\Main]
