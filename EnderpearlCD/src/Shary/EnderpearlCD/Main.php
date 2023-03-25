@@ -1,5 +1,4 @@
 <?php
-
 namespace Shary\EnderpearlCD;
 
 use pocketmine\event\player\PlayerInteractEvent;
@@ -16,13 +15,14 @@ class Main extends PluginBase implements Listener {
     private $pearlcd = [];
     private $config;
 
-    public function onEnable(): void {
+    public function onEnable() {
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->saveResource("config.yml");
         $this->config = new Config($this->getDataFolder()."config.yml", Config::YAML);
     }
 
-    public function onEnderPearl(PlayerInteractEvent $event): void {
+    public function onEnderPearl(PlayerInteractEvent $event)
+    {
         $item = $event->getItem();
         if($item->getId() === ItemIds::ENDER_PEARL) {
             $cooldown = $this->config->get("cooldown");
