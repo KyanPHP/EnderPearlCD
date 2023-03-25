@@ -6,8 +6,9 @@ use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\item\ItemIds;
 use pocketmine\utils\Config;
 use pocketmine\event\Listener;
-use pocketmine\plugin\PluginBase;
 use pocketmine\command\Command;
+use pocketmine\utils\TextFormat;
+use pocketmine\plugin\PluginBase;
 use pocketmine\command\CommandSender;
 
 class Main extends PluginBase implements Listener {
@@ -27,7 +28,7 @@ class Main extends PluginBase implements Listener {
             $cooldown = $this->config->get("cooldown");
             $player = $event->getPlayer();
             if (isset($this->pearlcd[$player->getName()]) and time() - $this->pearlcd[$player->getName()] < $cooldown) {
-                $event->setCancelled();
+                $event->setCancelled(true);
                 $time = time() - $this->pearlcd[$player->getName()];
                 $message = $this->config->get("message");
                 $message = str_replace("{cooldown}", ($cooldown - $time), $message);
